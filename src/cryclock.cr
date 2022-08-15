@@ -1,13 +1,21 @@
 require "crsfml"
 
-window = SF::RenderWindow.new(SF::VideoMode.new(800, 600), "My window")
+window = SF::RenderWindow.new(SF::VideoMode.new(800, 170), "Crystal Clock")
+clock = SF::Text.new("", SF::Font.from_file("font/AtomicClockRadio.ttf"), 140)
 
-# run the program as long as the window is open
+window.framerate_limit = 1
+
 while window.open?
-  # check all the window's events that were triggered since the last iteration of the loop
+  
+  clock.string = Time.utc.to_local.to_s("%H:%M:%S")
+  
+  window.clear(SF::Color::Black)  
+  window.draw(clock)
+  window.display
+  
   while event = window.poll_event
-    # "close requested" event: we close the window
-    if event.is_a? SF::Event::Closed
+    case event
+    when SF::Event::Closed
       window.close
     end
   end
