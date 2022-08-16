@@ -8,7 +8,7 @@ TODO: Write installation instructions here
 
 ## Usage
 
-TODO: Write usage instructions here
+![Cryclock Window Preview](https://github.com/Jeddi212/cryclock/blob/master/preview/cryclock-preview.png "Window Preview")
 
 ## Development
 
